@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Div Creation Assignment</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .box {
+      width: 150px;
+      height: 100px;
+      background-color: steelblue;
+      color: white;
+      margin: 10px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Dynamic Div Creation</h1>
+  <button id="createBtn">Create Div</button>
+
+  <div id="container"></div>
+
+  <script>
+    const button = document.getElementById("createBtn");
+    const container = document.getElementById("container");
+
+    let count = 1;
+
+    button.addEventListener("click", function() {
+
+      // Create new div
+      const newDiv = document.createElement("div");
+
+      // Add class
+      newDiv.classList.add("box");
+
+      // Add text
+      newDiv.textContent = "Box " + count;
+
+      // Append to container
+      container.appendChild(newDiv);
+
+      count++;
+    });
+  </script>
+
+</body>
+</html>

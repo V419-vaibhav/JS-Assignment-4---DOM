@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic CSS Assignment</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 60px;
+    }
+
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: teal;
+      margin: 30px auto;
+      border-radius: 10px;
+      transition: 0.4s ease;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Dynamic CSS Styling</h1>
+
+  <div id="box"></div>
+
+  <button id="styleBtn">Change Style</button>
+  <button id="resetBtn">Reset Style</button>
+
+  <script>
+    const box = document.getElementById("box");
+    const styleBtn = document.getElementById("styleBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    styleBtn.addEventListener("click", function() {
+      box.style.backgroundColor = "crimson";
+      box.style.borderRadius = "50%";
+      box.style.transform = "rotate(180deg)";
+      box.style.boxShadow = "0 0 20px black";
+    });
+
+    resetBtn.addEventListener("click", function() {
+      box.style.backgroundColor = "teal";
+      box.style.borderRadius = "10px";
+      box.style.transform = "rotate(0deg)";
+      box.style.boxShadow = "none";
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hide Show Paragraph</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 60px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #myPara {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Hide & Show Paragraph</h1>
+
+  <p id="myPara">
+    This paragraph can be hidden and shown using JavaScript DOM manipulation.
+  </p>
+
+  <button id="toggleBtn">Hide Paragraph</button>
+
+  <script>
+    const button = document.getElementById("toggleBtn");
+    const paragraph = document.getElementById("myPara");
+
+    button.addEventListener("click", function() {
+
+      paragraph.classList.toggle("hidden");
+
+      if (paragraph.classList.contains("hidden")) {
+        button.textContent = "Show Paragraph";
+      } else {
+        button.textContent = "Hide Paragraph";
+      }
+
+    });
+  </script>
+
+</body>
+</html>
