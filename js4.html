@@ -1,62 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Dynamic CSS Assignment</title>
+<title>JS DOM Assignment - Dynamic CSS</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 60px;
-    }
+<style>
+body{
+    font-family: Arial;
+}
 
-    #box {
-      width: 200px;
-      height: 200px;
-      background-color: teal;
-      margin: 30px auto;
-      border-radius: 10px;
-      transition: 0.4s ease;
-    }
+#text{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+</style>
 
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 10px;
-    }
-  </style>
 </head>
 
 <body>
 
-  <h1>Dynamic CSS Styling</h1>
+<h2 id="text">This is some example text</h2>
 
-  <div id="box"></div>
+<input type="color" id="colorPicker">
+<button onclick="changeColor()">Change Colour</button>
 
-  <button id="styleBtn">Change Style</button>
-  <button id="resetBtn">Reset Style</button>
+<br><br>
 
-  <script>
-    const box = document.getElementById("box");
-    const styleBtn = document.getElementById("styleBtn");
-    const resetBtn = document.getElementById("resetBtn");
+<input type="range" id="sizeSlider" min="10" max="100" value="30" oninput="changeSize()">
 
-    styleBtn.addEventListener("click", function() {
-      box.style.backgroundColor = "crimson";
-      box.style.borderRadius = "50%";
-      box.style.transform = "rotate(180deg)";
-      box.style.boxShadow = "0 0 20px black";
-    });
+<br><br>
 
-    resetBtn.addEventListener("click", function() {
-      box.style.backgroundColor = "teal";
-      box.style.borderRadius = "10px";
-      box.style.transform = "rotate(0deg)";
-      box.style.boxShadow = "none";
-    });
-  </script>
+<button onclick="italicText()">Italics</button>
+<button onclick="underlineText()">Underline</button>
+<button onclick="boldText()">Bold</button>
+
+<br><br>
+
+<select id="fontFamily" onchange="changeFont()">
+<option value="serif">Serif</option>
+<option value="sans-serif">Sans-serif</option>
+<option value="monospace">Monospace</option>
+<option value="cursive">Cursive</option>
+</select>
+
+<br><br>
+
+<button onclick="getCSS()">Get CSS</button>
+
+<p id="cssOutput"></p>
+
+<script>
+
+let text = document.getElementById("text");
+
+function changeColor(){
+    let color = document.getElementById("colorPicker").value;
+    text.style.color = color;
+}
+
+function changeSize(){
+    let size = document.getElementById("sizeSlider").value;
+    text.style.fontSize = size + "px";
+}
+
+function italicText(){
+    text.style.fontStyle = "italic";
+}
+
+function underlineText(){
+    text.style.textDecoration = "underline";
+}
+
+function boldText(){
+    text.style.fontWeight = "bold";
+}
+
+function changeFont(){
+    let font = document.getElementById("fontFamily").value;
+    text.style.fontFamily = font;
+}
+
+function getCSS(){
+    let css = `
+color: ${text.style.color};
+font-size: ${text.style.fontSize};
+font-style: ${text.style.fontStyle};
+text-decoration: ${text.style.textDecoration};
+font-weight: ${text.style.fontWeight};
+font-family: ${text.style.fontFamily};
+`;
+
+document.getElementById("cssOutput").innerText = css;
+}
+
+</script>
 
 </body>
 </html>
